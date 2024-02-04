@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<conio.h>
+#define maxsize 10
+int queue[maxsize],rear=-1,front=0;
+int main()
+{
+    int choice;
+    do{
+    printf("\n--------queue menu-------\n");
+    printf("\n1.insert,\n2.delete,\n3.display,\n4.temp,\n5.exit,\n");
+    printf("\n-------------\n");
+    printf("enter your choice");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1: insert();break;
+        case 2: delete();break;
+        case 3: display();break;
+        case 4: temp();break;
+
+        default:printf("invalid choice");
+    }}while(choice!=5);
+
+}
+void insert(){
+    int n;
+    if(rear==maxsize-1)
+        printf("\nqueue is overflow");
+    else{
+        printf("\nenter an element");
+        scanf("%d",&n);
+        rear++;
+        queue[rear]=n;
+    }
+}
+void delete()
+{
+int n;
+if(front>rear)
+    printf("queue is empty");
+else{
+    n=queue[front];
+    printf("\npoped elment is %d",n);
+    front++;
+}
+}
+void display()
+{
+    int i;
+if(front>rear)
+    printf("queue is empty");
+else{
+    printf("element of queue\n");
+    for(i=front;i<=rear;i++)
+        printf("%d ",queue[i]);
+}
+}
+void temp()
+{
+    int i;
+    for(i=0;i<=5;i++)
+    {
+        printf("\n%d",queue[i]);
+    }
+}
+
+
+
