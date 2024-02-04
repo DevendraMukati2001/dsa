@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<conio.h>
+#define maxsize 10
+int stack[maxsize],top=-1;
+void main()
+{
+    int choice;
+    do{
+    printf("\n--------stack menu-------\n");
+    printf("\n1.push,\n2.pop,\n3.display,\n4.exit,\n5.temp");
+    printf("\n-------------\n");
+    printf("enter your choice");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:push();break;
+        case 2:pop();break;
+        case 3:display();break;
+        case 5:temp();break;
+
+        default:printf("invalid choice");
+    }}while(choice!=7);
+
+}
+void push(){
+    int n;
+    if(top==maxsize-1)
+        printf("\nstAck is overflow");
+    else{
+        printf("\nenter an element");
+        scanf("%d",&n);
+        top++;
+        stack[top]=n;
+
+
+    }
+}
+void pop()
+{
+int n;
+if(top==-1)
+    printf("stack is empty");
+else{
+    n=stack[top];
+    top--;
+    printf("\npoped elment is %d",n);
+}
+}
+void display()
+{
+    int i;
+if(top==-1)
+    printf("stack is empty");
+else{
+    printf("element of stack\n");
+    for(i=top;i>=0;i--)
+        printf("\n%d",stack[i]);
+}
+}
+void temp()
+{
+    int i;
+    for(i=0;i<=5;i++)
+    {
+        printf("\n%d",stack[i]);
+    }
+}
+
+
+
