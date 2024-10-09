@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+#define max 5
+struct queue {
+    int q[max];
+    int front,rear;
+}q;
+void insert(int ele)
+{
+    if((q.rear==max-1&&q.front==0)||q.front==q.rear+1)
+    cout<<"circular queue is full";
+    else{
+        if(q.front==-1&&q.rear==-1)
+        q.front=0;
+        q.rear=(q.rear+1)%max;
+        q.q[q.rear]=ele;
+    }
+    
+}
+void delete1(){
+    if(q.front==-1&&q.rear==-1)
+    cout<<"circular queue is emppty";
+    else{
+        cout<<"delete element is "<<q.q[q.front];
+        if(q.front==q.rear)
+        q.rear=q.front=-1;
+        else
+        q.front=(q.rear+1)%max;
+    }
+}
+void display(){
+    if(q.front==-1&&q.rear==-1)
+    cout<<"circular queue is emppty";
+    else{
+        int i=q.front;
+        while(1){
+            cout<<" "<<q.q[i];
+            if(i==q.rear)
+            break;
+            else
+            i=(i+1)%max;
+        }
+    }
+}
+int main()
+{
+    q.front=-1,q.rear=-1;
+    int choice;
+    do{
+    cout<<"\n1.insert\n2.delete\n3.display\n";
+    cin>>choice;
+    switch(choice)
+    {
+        case 1:int n;
+        cin>>n;
+        insert(n);
+        break;
+        case 2:delete1();
+        break;
+        case 3:display();
+        break;
+        default:cout<<"invalide choice";
+    }
+}while(choice!=4);
+}
