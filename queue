@@ -1,68 +1,77 @@
-#include<stdio.h>
-#include<conio.h>
-#define maxsize 10
-int queue[maxsize],rear=-1,front=0;
-int main()
-{
+#include<iostream>
+using namespace std;
+
+#define max 5
+
+struct queue {
+    int rear, front;
+    int qu[max];
+}q;
+
+void insert(int data) {
+    if (q.rear == max - 1) {
+        cout << "Queue is overflow" << endl;
+    } else {
+        if (q.front == -1 && q.rear == -1) {
+            q.front = 0;
+        }
+        q.qu[++q.rear] = data; // Increment rear before assigning
+    }
+}
+
+void pop() {
+    if (q.front == -1) {
+        cout << "Queue is empty" << endl;
+    } else {
+        cout << "Deleted element is " << q.qu[q.front] << endl;
+        if (q.front == q.rear) { // If the queue becomes empty
+            q.front = -1;
+            q.rear = -1;
+        } else {
+            q.front++; // Increment front
+        }
+    }
+}
+
+void display() {
+    if (q.front == -1) {
+        cout << "Queue is empty" << endl;
+    } else {
+        cout << "Queue elements: ";
+        for (int i = q.front; i <= q.rear; i++) {
+            cout << q.qu[i] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
     int choice;
-    do{
-    printf("\n--------queue menu-------\n");
-    printf("\n1.insert,\n2.delete,\n3.display,\n4.temp,\n5.exit,\n");
-    printf("\n-------------\n");
-    printf("enter your choice");
-    scanf("%d",&choice);
-    switch(choice)
-    {
-        case 1: insert();break;
-        case 2: delete();break;
-        case 3: display();break;
-        case 4: temp();break;
+     q.front=-1,q.rear=-1;
+    do {
+        cout << "1. Insert\n2. Pop\n3. Display\n4. Exit\n";
+        cin >> choice;
+        switch (choice) {
+            case 1: {
+                int n;
+                cout << "Enter element to insert: ";
+                cin >> n;
+                insert(n);
+                break;
+            }
+            case 2:
+                pop();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout << "Invalid choice" << endl;
+        }
+    } while (choice != 4);
 
-        default:printf("invalid choice");
-    }}while(choice!=5);
-
+    return 0;
 }
-void insert(){
-    int n;
-    if(rear==maxsize-1)
-        printf("\nqueue is overflow");
-    else{
-        printf("\nenter an element");
-        scanf("%d",&n);
-        rear++;
-        queue[rear]=n;
-    }
-}
-void delete()
-{
-int n;
-if(front>rear)
-    printf("queue is empty");
-else{
-    n=queue[front];
-    printf("\npoped elment is %d",n);
-    front++;
-}
-}
-void display()
-{
-    int i;
-if(front>rear)
-    printf("queue is empty");
-else{
-    printf("element of queue\n");
-    for(i=front;i<=rear;i++)
-        printf("%d ",queue[i]);
-}
-}
-void temp()
-{
-    int i;
-    for(i=0;i<=5;i++)
-    {
-        printf("\n%d",queue[i]);
-    }
-}
-
-
-
