@@ -1,0 +1,13 @@
+#include<stdio.h>
+void main()
+{
+    char ch;
+    FILE *fp;
+    fp=fopen("file2.txt","a");
+    while(ch!='\n')
+    {
+        fputc(ch,fp);
+        scanf("%c",&ch);
+    }
+    fclose(fp);
+}
