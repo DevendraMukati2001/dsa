@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> sign(vector<int>a,int n)
+{
+    vector<int>pos;
+    vector<int>neg;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>0)
+        pos.push_back(a[i]);
+        else
+        neg.push_back(a[i]);
+    }
+    for(int i=0;i<n/2;i++)
+    {
+        a[2*i]=pos[i];
+        a[2*i+1]=neg[i];
+    }
+    return a;
+}
+int main(){
+    int n=4;
+    vector<int>a{1,2,-4,-5};
+    vector<int>ans=sign(a,n);
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
+}
