@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool areanagram(string &s1,string &s2){
+    // unordered_map<char,int>charcount;
+    // for(char ch:s1)
+    // charcount[ch]++;
+    // for(char ch:s2)
+    // charcount[ch]--;
+    // for(auto& pair:charcount)
+    // {
+    //     if(pair.second!=0){
+    //         return false;
+    //     }
+    // }
+    // return true;
+    sort(s1.begin(),s1.end());
+    sort(s2.begin(),s2.end());
+    return s1==s2;
+}
+int main()
+{
+    string s1="geeks";
+    string s2="kseeg";
+    cout<<(areanagram(s1,s2)?"true":"false")<<endl;
+    return 0;
+    
+}
