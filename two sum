@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int arr1[n];
+
+    // Input array elements
+    for (int i = 0; i < n; i++) {
+        cin >> arr1[i];
+    }
+
+    int num = 5; // Target sum
+    bool found = false;
+
+    // Check all pairs
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr1[i] + arr1[j] == num) {
+                cout << "Pair found: " << arr1[i] << ", " << arr1[j] << endl;
+                found = true;
+            }
+        }
+    }
+
+    if (!found) {
+        cout << "No pair found with sum " << num << endl;
+    }
+
+    return 0;
+}
