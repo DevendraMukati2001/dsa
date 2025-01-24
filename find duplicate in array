@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>findduplicate(vector<int>&arr){
+    int n=arr.size();
+    unordered_map<int,int>mp;
+    vector<int>result;
+    for(int i=0;i<n;i++)
+    {
+        mp[arr[i]]++;
+    }
+    for(auto a:mp)
+    {
+        if(a.second>1){
+            result.push_back(a.first);
+        }
+    }
+    if(result.empty()){
+        result.push_back(-1);
+    }
+    return result;
+}
+int main()
+{
+    vector<int> arr = {1,2,1,2,1,4,5,1};
+    vector<int>ans=findduplicate(arr);
+    for(auto i:ans)
+    cout<<" "<<i;
+}
