@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct myobject{
+    int x;
+    myobject (int a): x(a)
+    {
+    cout<<"myobject constructor :"<<x<<"\n";
+    }
+};
+int main()
+{
+    vector<myobject>vec;
+    vec.push_back(myobject(10)); // Creates a temporary MyObject and then copies it into the vector
+    vec.emplace_back(20);// Constructs the MyObject directly in-place within the vector
+}
