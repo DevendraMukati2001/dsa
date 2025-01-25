@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    map<int,string>mymap;
+    int n;
+    cout<<"kitne key value dalna chahte h : ";
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        int key;
+        string value;
+        cout<<"key dijiye : ";
+        cin>>key;
+        cout<<"value dijiye : ";
+        cin>>value;
+        mymap[key]=value;
+    }
+    cout<<"\nMap ke key-value pairs:\n";
+    for(auto pair:mymap)
+    {
+        cout<<"key: "<<pair.first<<" value: "<<pair.second<<"\n"; 
+    }
+}
